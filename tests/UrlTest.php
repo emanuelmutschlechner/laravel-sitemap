@@ -63,6 +63,7 @@ class UrlTest extends TestCase
         $this->assertEquals(0.1, $this->url->priority);
     }
 
+    /** @test */
     public function change_frequency_can_be_set()
     {
         $this->url->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY);

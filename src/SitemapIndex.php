@@ -4,6 +4,7 @@ namespace Spatie\Sitemap;
 
 use Spatie\Sitemap\Tags\Tag;
 use Spatie\Sitemap\Tags\Sitemap;
+use Spatie\Sitemap\Xml\SitemapIndex as Xml;
 
 class SitemapIndex
 {
@@ -67,11 +68,7 @@ class SitemapIndex
      */
     public function render(): string
     {
-        $tags = $this->tags;
-
-        return view('laravel-sitemap::sitemapIndex/index')
-            ->with(compact('tags'))
-            ->render();
+        return new Xml($this->tags);
     }
 
     /**

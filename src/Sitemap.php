@@ -4,6 +4,7 @@ namespace Spatie\Sitemap;
 
 use Spatie\Sitemap\Tags\Tag;
 use Spatie\Sitemap\Tags\Url;
+use Spatie\Sitemap\Xml\UrlSet as Xml;
 
 class Sitemap
 {
@@ -54,11 +55,7 @@ class Sitemap
     {
         sort($this->tags);
 
-        $tags = $this->tags;
-
-        return view('laravel-sitemap::sitemap')
-            ->with(compact('tags'))
-            ->render();
+        return new Xml($this->tags);
     }
 
     public function writeToFile(string $path): self
