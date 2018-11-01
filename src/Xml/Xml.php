@@ -67,7 +67,7 @@ abstract class Xml
      * @param null|string $value
      * @param array $attributes
      */
-    protected function add(string $name, string $value = null, array $attributes = []): void
+    protected function add(string $name, ?string $value = null, array $attributes = []): void
     {
         $node = $this->dom->createElement($name, $value);
         foreach ($attributes as $attributeName => $attributeValue) {
@@ -84,7 +84,7 @@ abstract class Xml
      * @param string|null $value
      * @param array $attributes
      */
-    protected function addWhen(bool $condition, string $name, string $value = null, array $attributes = []): void
+    protected function addWhen(bool $condition, string $name, ?string $value = null, array $attributes = []): void
     {
         if ($condition) {
             $this->add($name, $value, $attributes);
