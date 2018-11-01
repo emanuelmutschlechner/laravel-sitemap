@@ -15,7 +15,7 @@ class SitemapIndex extends Xml
      */
     protected function process($tag): void
     {
-        $this->add('loc', $tag->url);
+        $this->add('loc', url($tag->url));
         $this->addWhen(!empty($tag->lastModificationDate), 'lastmod', $tag->lastModificationDate->format(DateTime::ATOM));
     }
 
